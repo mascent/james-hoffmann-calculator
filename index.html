@@ -58,25 +58,20 @@
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen></iframe>
 
-                    <form oninput="calculateIcedCoffe(this)">
+                    <form>
                         <div class="row">
                             <div class="one-half column">
-                                <label for="targetLiquid">Liquid Size</label>
-                                <input type="number" id="targetLiquid" name="targetLiquid" value="500"> ml
+                                <label for="targetLiquid" >Liquid Size</label>
+                                <input type="number" name="targetLiquid" value="500" oninput="calculateIcedCoffe(this)"> ml
                                 <label for="groundCoffee">Ground coffee</label>
-                                <input type="number" id="groundCoffee"
-                                    name="groundCoffee" value="32.5"> g
+                                <input type="number" name="groundCoffee" value="32.5" oninput="calculateIcedCoffe(this)" step="0.1"> g
                                 <label for="icePercentInput">% of ice</label>
 
-                                <div class="row u-full-width"> <input type="range" id="icePercentInput"
-                                        name="icePercentInput" value="40"> <output name="amountIcePercent">40</output>
+                                <div class="row u-full-width"> <input type="range"  name="icePercentInput" value="40" oninput="calculateIcedCoffe(this)"> <output name="amountIcePercent">40</output>
 
-                                    <label for="amountIce">Ice</label><output id="amountIce"
-                                        name="amountIce">200</output> g
-                                    <label for="amountWater">Water (to boil)</label><output id="amountWater"
-                                        name="amountWater">300</output> ml
-                                    <label for="amountBloom">Water for bloom</label><output id="amountBloom"
-                                        name="amountBloom">65</output> ml
+                                    <label for="amountIce">Ice</label><output name="amountIce">200</output> g
+                                    <label for="amountWater">Water (to boil)</label><output name="amountWater">300</output> ml
+                                    <label for="amountBloom">Water for bloom</label><output name="amountBloom">65</output> ml
                                 </div>
                             </div>
                             <div class="one-half column">
@@ -106,19 +101,16 @@
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen></iframe>
 
-                    <form oninput="calculateV60(this)">
+                    <form>
                         <div class="row">
                             <div class="one-half column">
                                 <label for="targetLiquid">Liquid Size</label>
-                                <input type="number" id="targetLiquid" name="targetLiquid" value="500"> ml
+                                <input type="number" name="targetLiquid" value="500" oninput="calculateV60(this)"> ml
                                 <label for="groundCoffee">Ground coffee</label>
-                                <input type="number" id="groundCoffee"
-                                    name="groundCoffee" value="30"> g
-                                <label for="amountWater">Water (to boil)</label><output id="amountWater"
-                                    name="amountWater">500</output> ml
+                                <input type="number" name="groundCoffee" value="30" oninput="calculateV60(this)" step="0.1"> g
+                                <label for="amountWater">Water (to boil)</label><output name="amountWater">500</output> ml
                                 
-                                <label for="amountBloom">Water for bloom</label><output id="amountBloom"
-                                    name="amountBloom">60</output> ml
+                                <label for="amountBloom">Water for bloom</label><output name="amountBloom">60</output> ml
                             </div>
                             <div class="one-half column">
                                 <h4>Breakdown</h4>
@@ -143,16 +135,14 @@
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen></iframe>
 
-                    <form oninput="calculateFrenchPress(this)">
+                    <form >
                         <div class="row">
                             <div class="one-half column">
                                 <label for="targetLiquid">Liquid Size</label>
-                                <input type="number" id="targetLiquid" name="targetLiquid" value="500"> ml
+                                <input type="number" name="targetLiquid" value="500" oninput="calculateFrenchPress(this)"> ml
                                 <label for="groundCoffee">Ground coffee</label>
-                                <input type="number" id="groundCoffee"
-                                    name="groundCoffee" value="30"> g
-                                <label for="amountWater">Water (to boil)</label><output id="amountWater"
-                                    name="amountWater">500</output> ml
+                                <input type="number"name="groundCoffee" value="30" oninput="calculateFrenchPress(this)" step="0.1"> g
+                                <label for="amountWater">Water (to boil)</label><output name="amountWater">500</output> ml
                             </div>
                             <div class="one-half column">
                                 <h4>Breakdown</h4>
@@ -182,38 +172,50 @@
     <script type="text/javascript">
         function calculateFrenchPress(element) {
 
+            let form = getFormElementSetGroundCoffe(element);
             let coffePerLiter = 60;
-            let amountLiquid = parseFloat(element.targetLiquid.value);
-            calculateGroundCoffee(element, amountLiquid, coffePerLiter);
-            setWaterToBoil(element, amountLiquid);
+
+
+            let amountLiquid = parseFloat(form.targetLiquid.value);
+            calculateGroundCoffee(form, amountLiquid, coffePerLiter);
+            setWaterToBoil(form, amountLiquid);
 
         }
 
         function calculateV60(element) {
             let coffePerLiter = 60;
-            let amountLiquid = parseFloat(element.targetLiquid.value);
+            let form = getFormElementSetGroundCoffe(element);
+            
+            let amountLiquid = parseFloat(form.targetLiquid.value);
 
-            calculateGroundCoffee(element, amountLiquid, coffePerLiter);
-            calculateBloom(element, amountLiquid, coffePerLiter);
-            calculatePour(element, amountLiquid);
-            setWaterToBoil(element, amountLiquid);
+            calculateGroundCoffee(form, amountLiquid, coffePerLiter);
+            calculateBloom(form, amountLiquid, coffePerLiter);
+            calculatePour(form, amountLiquid);
+            setWaterToBoil(form, amountLiquid);
         }
 
         function calculateIcedCoffe(element) {
             let coffePerLiter = 65;
-            let icePercent = parseFloat(element.icePercentInput.value);
-            let goalLiquid = parseFloat(element.targetLiquid.value);
-            let amountLiquid = ((1 - icePercent / 100) * goalLiquid);
-            calculateGroundCoffee(element, goalLiquid, coffePerLiter);
-            calculateBloom(element, goalLiquid, coffePerLiter);
-            calculatePour(element, amountLiquid);
-            setWaterToBoil(element, amountLiquid);
+            let form = getFormElementSetGroundCoffe(element, coffePerLiter);
+  
 
-            element.amountIcePercent.value = icePercent;
-            element.amountIce.value = ((icePercent / 100) * goalLiquid).toFixed(1);
-            element.amountIce2.value = ((icePercent / 100) * goalLiquid).toFixed(1);
+            let icePercent = parseFloat(form.icePercentInput.value);
+            let goalLiquid = parseFloat(form.targetLiquid.value);
+            let amountLiquid = ((1 - icePercent / 100) * goalLiquid);
+            calculateGroundCoffee(form, goalLiquid, coffePerLiter);
+            calculateBloom(form, goalLiquid, coffePerLiter);
+            calculatePour(form, amountLiquid);
+            setWaterToBoil(form, amountLiquid);
+
+            form.amountIcePercent.value = icePercent;
+            form.amountIce.value = ((icePercent / 100) * goalLiquid).toFixed(1);
+            form.amountIce2.value = ((icePercent / 100) * goalLiquid).toFixed(1);
         }
 
+        function calculateLiquidSize(element, groundCoffee, coffePerLiter = 60) {
+            let  targetLiquid = groundCoffee * 1000 / coffePerLiter;
+            element.targetLiquid.value = targetLiquid.toFixed(1);
+        }
         function calculateGroundCoffee(element, amountLiquid, coffePerLiter = 60) {
             let ground = (amountLiquid / 1000 * coffePerLiter);
             element.groundCoffee.value = ground.toFixed(1);
@@ -238,6 +240,14 @@
 
         function setWaterToBoil(element, amountLiquid) {
             element.amountWater.value = amountLiquid.toFixed(1);
+        }
+
+        function getFormElementSetGroundCoffe(element, coffePerLiter=60){
+            let form = element.closest("form");
+            if(element.name == "groundCoffee"){
+                calculateLiquidSize(form, parseFloat(element.value), coffePerLiter);
+            }
+            return form;
         }
 
 
