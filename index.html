@@ -193,10 +193,8 @@
         function calculateV60(element) {
             let coffePerLiter = 60;
             let amountLiquid = parseFloat(element.targetLiquid.value);
-            let pour1total = amountLiquid * 0.6;
-            let pour1 = pour1total - blooming;
 
-            calculateGroundCoffee(element, coffePerLiter);
+            calculateGroundCoffee(element, amountLiquid, coffePerLiter);
             calculateBloom(element, amountLiquid, coffePerLiter);
             calculatePour(element, amountLiquid);
             setWaterToBoil(element, amountLiquid);
