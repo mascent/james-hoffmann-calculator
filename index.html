@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta charset="utf-8">
+    <title>Hoffmann fanmade coffee calculator</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+    <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="icon" type="image/png" href="images/chemex_style.svg">
+
+</head>
+
+<body>
+    <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <header class="u-full-width">
+        <div class="header-text">
+            <h1>Hoffmann fanmade coffee calculator</h1>
+            <h2>Quickly calculate brew rations for delicious coffee based on James Hoffmann's recipes</h1>
+        </div>
+    </header>
+    <div class="container">
+        <div class="row" style="margin-top: 5%;">
+            <div class="ten columns">
+                <p>This is just a small recreation of the <a
+                        href="https://coda.io/@alessandro-mingione/hoffmann-coffee-calculator">Hoffmann coffee
+                        Calculator from Alessandro Mingione</a>. In this version you can set any liquid size and I fixed
+                    an error with the amount of water used in the iced coffee calculation. Feel free to contribute and
+                    fix errors on github.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="ten columns">
+                <div class="row">
+                    <h3>Iced filter coffe</h3>
+                    <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/PApBycDrPo0"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+
+                    <form oninput="calculateIcedCoffe(this)">
+                        <div class="row">
+                            <div class="one-half column">
+                                <label for="targetLiquid">Liquid Size</label>
+                                <input type="number" id="targetLiquid" name="targetLiquid" value="500">
+                                </select>ml
+                                <label for="icePercentInput">% of ice</label>
+
+                                <div class="row u-full-width"> <input type="range" id="icePercentInput"
+                                        name="icePercentInput" value="40"> <output name="amountIcePercent">40</output>
+
+                                    <label for="amountIce">Ice</label><output id="amountIce"
+                                        name="amountIce">200</output>g
+                                    <label for="amountLiquidIcedCoffe">Water (to boil)</label><output
+                                        id="amountLiquidIcedCoffe" name="amountLiquidIcedCoffe">300</output>ml
+                                    <label for="amountCoffeeIcedCoffe">Water (to boil)</label><output
+                                        id="amountCoffeeIcedCoffe" name="amountCoffeeIcedCoffe">32.5</output>g
+                                    <label for="amountBloom">Water for bloom</label><output id="amountBloom"
+                                        name="amountBloom">65</output>ml
+                                </div>
+                            </div>
+                            <div class="one-half column">
+                                <h4>Breakdown</h4>
+                                <b>Before: </b> Prepare decanter with <output name="amountIce2">200</output>g of ice,
+                                rinse paper filter
+                                under sink. <br>
+                                <code>0:00</code> Bloom with <output name="amountBloom2">32.5</output>ml, wait 45s. <br>
+                                <code>0:45</code> Pour <output name="pour1">115</output>ml in 30s. <b>Total: <output
+                                        name="pour1total">180</output>g</b> <br>
+                                <code>1:15</code> Pour <output name="pour2">120</output>ml in 30s. <b>Total: <output
+                                        name="pour2total">300</output>g</b> <br>
+                                <code>1:45</code> Stir 1x clockwise and 1x counterclockwise, swirl, and let it draw
+                                down. <br>
+                                <b>After: </b> Swirl brew in decanter to melt all the ice. Pour onto fresh ice cubes in
+                                glass.
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <div class="two columns">quicknav</div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        function calculateIcedCoffe(element) {
+            let icePercent = parseFloat(element.icePercentInput.value);
+            let goalLiquid = parseFloat(element.targetLiquid.value);
+            let amountLiquid = ((icePercent / 100) * goalLiquid)
+            let blooming = (amountLiquid / 500 * 65)
+            let pour1total = amountLiquid * 0.6;
+            let pour1 = pour1total - blooming;
+
+
+            element.amountIcePercent.value = icePercent;
+            element.amountIce.value = ((1 - icePercent / 100) * goalLiquid).toFixed(1);
+            element.amountIce2.value = ((1 - icePercent / 100) * goalLiquid).toFixed(1);
+            element.amountLiquidIcedCoffe.value = amountLiquid.toFixed(1);
+            element.amountCoffeeIcedCoffe.value = (goalLiquid / 1000 * 65).toFixed(1);
+            element.amountBloom.value = blooming.toFixed(1);
+            element.amountBloom2.value = blooming.toFixed(1);
+            element.pour1total.value = pour1total.toFixed(1);
+            element.pour1.value = pour1.toFixed(1);
+            element.pour2total.value = (amountLiquid).toFixed(1);
+            element.pour2.value = (amountLiquid - pour1total).toFixed(1);
+        }
+    </script>
+    <!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+
+</html>
