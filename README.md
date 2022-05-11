@@ -8,4 +8,4 @@ Using [Sekelton](http://getskeleton.com/)
 
 
 # TODO
-- Add AeroPress
+- more techniques
