@@ -214,7 +214,8 @@
             if(element.name == "groundCoffee"){
                 calculateLiquidSize(form, parseFloat(element.value), coffePerLiter);
             }else{
-                calculateGroundCoffee(form, goalLiquid, coffePerLiter);
+            let goalLiquid = parseFloat(form.targetLiquid.value);
+            calculateGroundCoffee(form, goalLiquid, coffePerLiter);
             }
         }
 
