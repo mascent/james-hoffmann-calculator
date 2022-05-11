@@ -204,15 +204,15 @@
             let coffePerLiter = 65;
             let icePercent = parseFloat(element.icePercentInput.value);
             let goalLiquid = parseFloat(element.targetLiquid.value);
-            let amountLiquid = ((icePercent / 100) * goalLiquid);
-            calculateGroundCoffee(element, coffePerLiter);
-            calculateBloom(element, amountLiquid, coffePerLiter);
+            let amountLiquid = ((1 - icePercent / 100) * goalLiquid);
+            calculateGroundCoffee(element, goalLiquid, coffePerLiter);
+            calculateBloom(element, goalLiquid, coffePerLiter);
             calculatePour(element, amountLiquid);
             setWaterToBoil(element, amountLiquid);
 
             element.amountIcePercent.value = icePercent;
-            element.amountIce.value = ((1 - icePercent / 100) * goalLiquid).toFixed(1);
-            element.amountIce2.value = ((1 - icePercent / 100) * goalLiquid).toFixed(1);
+            element.amountIce.value = ((icePercent / 100) * goalLiquid).toFixed(1);
+            element.amountIce2.value = ((icePercent / 100) * goalLiquid).toFixed(1);
         }
 
         function calculateGroundCoffee(element, amountLiquid, coffePerLiter = 60) {
