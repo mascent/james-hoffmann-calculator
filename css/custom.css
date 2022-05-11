@@ -18,3 +18,16 @@ header{
 
     color: lightgrey;
 }
+
+ /* Style the navbar */
+ #navbar {
+    padding-left: 5%;
+    overflow: hidden;
+  }
+  
+  /* Navbar links */
+  #navbar a {
+    display: block;
+    text-decoration: none;
+    width: 100%;
+  }

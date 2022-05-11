@@ -36,7 +36,7 @@
     <header class="u-full-width">
         <div class="header-text">
             <h1>Hoffmann fanmade coffee calculator</h1>
-            <h2>Quickly calculate brew rations for delicious coffee based on James Hoffmann's recipes</h1>
+            <h3>Quickly calculate brew rations for delicious coffee based on James Hoffmann's recipes</h1>
         </div>
     </header>
     <div class="container">
@@ -50,9 +50,9 @@
             </div>
         </div>
         <div class="row">
-            <div class="ten columns">
+            <div class="nine columns">
                 <div class="row">
-                    <h3>Iced filter coffe</h3>
+                    <h3 id="IcedCoffee">Iced filter coffe</h3>
                     <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/PApBycDrPo0"
                         title="YouTube video player" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -71,10 +71,10 @@
 
                                     <label for="amountIce">Ice</label><output id="amountIce"
                                         name="amountIce">200</output> g
-                                    <label for="amountLiquidIcedCoffe">Water (to boil)</label><output
-                                        id="amountLiquidIcedCoffe" name="amountLiquidIcedCoffe">300</output> ml
-                                    <label for="amountCoffeeIcedCoffe">Ground coffee</label><output
-                                        id="amountCoffeeIcedCoffe" name="amountCoffeeIcedCoffe">32.5</output> g
+                                    <label for="amountWater">Water (to boil)</label><output id="amountWater"
+                                        name="amountWater">300</output> ml
+                                    <label for="groundCoffee">Ground coffee</label><output id="groundCoffee"
+                                        name="groundCoffee">32.5</output> g
                                     <label for="amountBloom">Water for bloom</label><output id="amountBloom"
                                         name="amountBloom">65</output> ml
                                 </div>
@@ -99,8 +99,12 @@
                     </form>
                 </div>
                 <div class="row">
-                    <h3>Ultimate V60 (and Chemex)</h3>
-                    <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/AI4ynXzkSQo?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <h3 id="V60">Ultimate V60 (and Chemex)</h3>
+                    <iframe width="100%" height="315"
+                        src="https://www.youtube-nocookie.com/embed/AI4ynXzkSQo?controls=0" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
 
                     <form oninput="calculateV60(this)">
                         <div class="row">
@@ -108,12 +112,12 @@
                                 <label for="targetLiquid">Liquid Size</label>
                                 <input type="number" id="targetLiquid" name="targetLiquid" value="500">
                                 </select>ml
-                                    <label for="amountLiquidIcedCoffe">Water (to boil)</label><output
-                                        id="amountLiquidIcedCoffe" name="amountLiquidIcedCoffe">500</output> ml
-                                    <label for="amountCoffeeIcedCoffe">Ground coffee</label><output
-                                        id="amountCoffeeIcedCoffe" name="amountCoffeeIcedCoffe">30</output> g
-                                    <label for="amountBloom">Water for bloom</label><output id="amountBloom"
-                                        name="amountBloom">60</output> ml
+                                <label for="amountWater">Water (to boil)</label><output id="amountWater"
+                                    name="amountWater">500</output> ml
+                                <label for="groundCoffee">Ground coffee</label><output id="groundCoffee"
+                                    name="groundCoffee">30</output> g
+                                <label for="amountBloom">Water for bloom</label><output id="amountBloom"
+                                    name="amountBloom">60</output> ml
                             </div>
                             <div class="one-half column">
                                 <h4>Breakdown</h4>
@@ -130,49 +134,116 @@
 
                     </form>
                 </div>
+                <div class="row">
+                    <h3 id="French">Ultimate french press</h3>
+                    <iframe width="100%" height="315"
+                        src="https://www.youtube-nocookie.com/embed/st571DYYTR8?controls=0" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+
+                    <form oninput="calculateFrenchPress(this)">
+                        <div class="row">
+                            <div class="one-half column">
+                                <label for="targetLiquid">Liquid Size</label>
+                                <input type="number" id="targetLiquid" name="targetLiquid" value="500">
+                                </select>ml
+                                <label for="amountWater">Water (to boil)</label><output id="amountWater"
+                                    name="amountWater">500</output> ml
+                                <label for="groundCoffee">Ground coffee</label><output id="groundCoffee"
+                                    name="groundCoffee">30</output> g
+                            </div>
+                            <div class="one-half column">
+                                <h4>Breakdown</h4>
+                                <code>0:00</code> Combine coffee and water, let sit for 4 minutes. <br>
+                                <code>4:00</code> Grab two spoons, <b>stir</b> the crust on the top, stuff will begin to
+                                fall down, <b>scoop</b> away everything that's left floating on top. <b>Do nothing for
+                                    5+ minutes</b>(recommended activities: read the newspaper, make breakfast, start a
+                                rebellion).<br>
+                                <code>1:15</code> Pour <output name="pour2">200</output> ml in 30s. <b>Total: <output
+                                        name="pour2total">500</output> g</b> <br>
+                                <code>12:00ish</code> Put the plunger right on the surface of the coffee, pour coffee in
+                                the cup. <br>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
             </div>
-            <div class="two columns">quicknav</div>
+            <div class="three columns">
+                <div id="navbar">
+                    <a href="#IcedCoffee">Iced Coffee</a>
+                    <a href="#V60">Ultimate V60 (and Chemex)</a>
+                    <a href="#French">Ultimate french press</a></div>
+
+            </div>
         </div>
     </div>
 
     <script type="text/javascript">
-        calculateV60
-        function calculateV60(element) {
+        function calculateFrenchPress(element) {
+
+            let coffePerLiter = 60;
             let amountLiquid = parseFloat(element.targetLiquid.value);
-            let blooming = (amountLiquid / 500 * 60);
+            calculateGroundCoffee(element, amountLiquid, coffePerLiter);
+            setWaterToBoil(element, amountLiquid);
+
+        }
+
+        function calculateV60(element) {
+            let coffePerLiter = 60;
+            let amountLiquid = parseFloat(element.targetLiquid.value);
             let pour1total = amountLiquid * 0.6;
             let pour1 = pour1total - blooming;
 
-
-            element.amountLiquidIcedCoffe.value = amountLiquid.toFixed(1);
-            element.amountBloom.value = blooming.toFixed(1);
-            element.amountBloom2.value = blooming.toFixed(1);
-            element.pour1total.value = pour1total.toFixed(1);
-            element.pour1.value = pour1.toFixed(1);
-            element.pour2total.value = (amountLiquid).toFixed(1);
-            element.pour2.value = (amountLiquid - pour1total).toFixed(1);
+            calculateGroundCoffee(element, coffePerLiter);
+            calculateBloom(element, amountLiquid, coffePerLiter);
+            calculatePour(element, amountLiquid);
+            setWaterToBoil(element, amountLiquid);
         }
+
         function calculateIcedCoffe(element) {
+            let coffePerLiter = 65;
             let icePercent = parseFloat(element.icePercentInput.value);
             let goalLiquid = parseFloat(element.targetLiquid.value);
             let amountLiquid = ((icePercent / 100) * goalLiquid);
-            let blooming = (amountLiquid / 500 * 65);
-            let pour1total = amountLiquid * 0.6;
-            let pour1 = pour1total - blooming;
-
+            calculateGroundCoffee(element, coffePerLiter);
+            calculateBloom(element, amountLiquid, coffePerLiter);
+            calculatePour(element, amountLiquid);
+            setWaterToBoil(element, amountLiquid);
 
             element.amountIcePercent.value = icePercent;
             element.amountIce.value = ((1 - icePercent / 100) * goalLiquid).toFixed(1);
             element.amountIce2.value = ((1 - icePercent / 100) * goalLiquid).toFixed(1);
-            element.amountLiquidIcedCoffe.value = amountLiquid.toFixed(1);
-            element.amountCoffeeIcedCoffe.value = (goalLiquid / 1000 * 65).toFixed(1);
+        }
+
+        function calculateGroundCoffee(element, amountLiquid, coffePerLiter = 60) {
+            let ground = (amountLiquid / 1000 * coffePerLiter);
+            element.groundCoffee.value = ground.toFixed(1);
+        }
+
+        function calculateBloom(element, amountLiquid, coffePerLiter = 60) {
+            let blooming = (amountLiquid / 500 * coffePerLiter);
             element.amountBloom.value = blooming.toFixed(1);
             element.amountBloom2.value = blooming.toFixed(1);
+        }
+
+        function calculatePour(element, amountLiquid) {
+            let blooming = parseFloat(element.amountBloom.value);
+            let pour1total = amountLiquid * 0.6;
+            let pour1 = pour1total - blooming;
+
             element.pour1total.value = pour1total.toFixed(1);
             element.pour1.value = pour1.toFixed(1);
             element.pour2total.value = (amountLiquid).toFixed(1);
             element.pour2.value = (amountLiquid - pour1total).toFixed(1);
         }
+
+        function setWaterToBoil(element, amountLiquid) {
+            element.amountWater.value = amountLiquid.toFixed(1);
+        }
+
+
     </script>
     <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
