@@ -172,23 +172,23 @@
     <script type="text/javascript">
         function calculateFrenchPress(element) {
 
-            let form = getFormElementSetGroundCoffe(element);
+            let form = getFormElement(element);
             let coffePerLiter = 60;
+            liquidAndGroudns(form, element, coffePerLiter);
 
 
             let amountLiquid = parseFloat(form.targetLiquid.value);
-            calculateGroundCoffee(form, amountLiquid, coffePerLiter);
             setWaterToBoil(form, amountLiquid);
 
         }
 
         function calculateV60(element) {
             let coffePerLiter = 60;
-            let form = getFormElementSetGroundCoffe(element);
+            let form = getFormElement(element);
             
-            let amountLiquid = parseFloat(form.targetLiquid.value);
+            liquidAndGroudns(form, element, coffePerLiter);
 
-            calculateGroundCoffee(form, amountLiquid, coffePerLiter);
+            let amountLiquid = parseFloat(form.targetLiquid.value);
             calculateBloom(form, amountLiquid, coffePerLiter);
             calculatePour(form, amountLiquid);
             setWaterToBoil(form, amountLiquid);
@@ -196,13 +196,11 @@
 
         function calculateIcedCoffe(element) {
             let coffePerLiter = 65;
-            let form = getFormElementSetGroundCoffe(element, coffePerLiter);
-  
-
+            let form = getFormElement(element, coffePerLiter);
+            liquidAndGroudns(form, element, coffePerLiter);
             let icePercent = parseFloat(form.icePercentInput.value);
             let goalLiquid = parseFloat(form.targetLiquid.value);
             let amountLiquid = ((1 - icePercent / 100) * goalLiquid);
-            calculateGroundCoffee(form, goalLiquid, coffePerLiter);
             calculateBloom(form, goalLiquid, coffePerLiter);
             calculatePour(form, amountLiquid);
             setWaterToBoil(form, amountLiquid);
@@ -210,6 +208,14 @@
             form.amountIcePercent.value = icePercent;
             form.amountIce.value = ((icePercent / 100) * goalLiquid).toFixed(1);
             form.amountIce2.value = ((icePercent / 100) * goalLiquid).toFixed(1);
+        }
+
+        function liquidAndGroudns(form, element, coffePerLiter){
+            if(element.name == "groundCoffee"){
+                calculateLiquidSize(form, parseFloat(element.value), coffePerLiter);
+            }else{
+                calculateGroundCoffee(form, goalLiquid, coffePerLiter);
+            }
         }
 
         function calculateLiquidSize(element, groundCoffee, coffePerLiter = 60) {
@@ -242,11 +248,8 @@
             element.amountWater.value = amountLiquid.toFixed(1);
         }
 
-        function getFormElementSetGroundCoffe(element, coffePerLiter=60){
+        function getFormElement(element){
             let form = element.closest("form");
-            if(element.name == "groundCoffee"){
-                calculateLiquidSize(form, parseFloat(element.value), coffePerLiter);
-            }
             return form;
         }
 
