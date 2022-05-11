@@ -158,18 +158,61 @@
 
                     </form>
                 </div>
+                <div class="row">
+                    <h3 id="aeropress">The Ultimate AeroPress Technique</h3>
+                    <iframe width="100%" height="315"
+                        src="https://www.youtube-nocookie.com/embed/j6VlT_jUVPc?controls=0" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+
+                    <form >
+                        <div class="row">
+                            <div class="one-half column">
+                                <label for="targetLiquid">Liquid Size</label>
+                                <input type="number" name="targetLiquid" value="200" oninput="calculateAeroPress(this)"> ml
+                                <label for="groundCoffee">Ground coffee</label>
+                                <input type="number"name="groundCoffee" value="11" oninput="calculateAeroPress(this)" step="0.1"> g
+                                <label for="amountWater">Water (to boil)</label><output name="amountWater">200</output> ml
+                            </div>
+                            <div class="one-half column">
+                                <h4>Breakdown</h4>
+                                <b>Before: </b> Put the filter into the cap. Don't rinse or preheat the brewer (it doesn't make any difference) <br>
+                                <code>0:00</code> Put coffee into the brewer and then add water, aiming to wet all the coffee during pouring <br>
+                                <code>0:01</code> Place the piston piece into the top of the brewer, about 1cm in <br>
+                                <code>2:00</code> Holding the brewer and the piston, gently swirl the brewer <b>remove brewer from scale</b> <br>
+                                <code>2:30</code> Press gently all the way <br>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
             </div>
             <div class="three columns">
                 <div id="navbar">
                     <a href="#IcedCoffee">Iced Coffee</a>
                     <a href="#V60">Ultimate V60 (and Chemex)</a>
-                    <a href="#French">Ultimate french press</a></div>
+                    <a href="#French">Ultimate french press</a>
+                    <a href="#aeropress">The Ultimate AeroPress Technique</a>
+                </div>
 
             </div>
         </div>
     </div>
 
     <script type="text/javascript">
+        function calculateAeroPress(element) {
+
+            let form = getFormElement(element);
+            let coffePerLiter = 55;
+            liquidAndGroudns(form, element, coffePerLiter);
+
+
+            let amountLiquid = parseFloat(form.targetLiquid.value);
+            setWaterToBoil(form, amountLiquid);
+
+        }
+
         function calculateFrenchPress(element) {
 
             let form = getFormElement(element);
