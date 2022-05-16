@@ -51,8 +51,9 @@
         </div>
         <div class="row">
             <div class="nine columns">
+                <!--#region IcedCoffee  -->
                 <div class="row">
-                    <h3 id="IcedCoffee">Iced filter coffe</h3>
+                    <h3 id="IcedCoffee">Iced filter coffee</h3>
                     <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/PApBycDrPo0"
                         title="YouTube video player" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -61,17 +62,22 @@
                     <form>
                         <div class="row">
                             <div class="one-half column">
-                                <label for="targetLiquid" >Liquid Size</label>
-                                <input type="number" name="targetLiquid" value="500" oninput="calculateIcedCoffe(this)"> ml
+                                <label for="targetLiquid">Liquid Size</label>
+                                <input type="number" name="targetLiquid" value="500"
+                                    oninput="calculateIcedCoffee(this)"> ml
                                 <label for="groundCoffee">Ground coffee</label>
-                                <input type="number" name="groundCoffee" value="32.5" oninput="calculateIcedCoffe(this)" step="0.1"> g
+                                <input type="number" name="groundCoffee" value="32.5"
+                                    oninput="calculateIcedCoffee(this)" step="0.1"> g
                                 <label for="icePercentInput">% of ice</label>
 
-                                <div class="row u-full-width"> <input type="range"  name="icePercentInput" value="40" oninput="calculateIcedCoffe(this)"> <output name="amountIcePercent">40</output>
+                                <div class="row u-full-width"> <input type="range" name="icePercentInput" value="40"
+                                        oninput="calculateIcedCoffee(this)"> <output name="amountIcePercent">40</output>
 
                                     <label for="amountIce">Ice</label><output name="amountIce">200</output> g
-                                    <label for="amountWater">Water (to boil)</label><output name="amountWater">300</output> ml
-                                    <label for="amountBloom">Water for bloom</label><output name="amountBloom">65</output> ml
+                                    <label for="amountWater">Water (to boil)</label><output
+                                        name="amountWater">300</output> ml
+                                    <label for="amountBloom">Water for bloom</label><output
+                                        name="amountBloom">65</output> ml
                                 </div>
                             </div>
                             <div class="one-half column">
@@ -93,6 +99,8 @@
 
                     </form>
                 </div>
+                <!--endregion -->
+                <!--#region V60  -->
                 <div class="row">
                     <h3 id="V60">Ultimate V60 (and Chemex)</h3>
                     <iframe width="100%" height="315"
@@ -107,10 +115,13 @@
                                 <label for="targetLiquid">Liquid Size</label>
                                 <input type="number" name="targetLiquid" value="500" oninput="calculateV60(this)"> ml
                                 <label for="groundCoffee">Ground coffee</label>
-                                <input type="number" name="groundCoffee" value="30" oninput="calculateV60(this)" step="0.1"> g
-                                <label for="amountWater">Water (to boil)</label><output name="amountWater">500</output> ml
-                                
-                                <label for="amountBloom">Water for bloom</label><output name="amountBloom">60</output> ml
+                                <input type="number" name="groundCoffee" value="30" oninput="calculateV60(this)"
+                                    step="0.1"> g
+                                <label for="amountWater">Water (to boil)</label><output name="amountWater">500</output>
+                                ml
+
+                                <label for="amountBloom">Water for bloom</label><output name="amountBloom">60</output>
+                                ml
                             </div>
                             <div class="one-half column">
                                 <h4>Breakdown</h4>
@@ -127,6 +138,8 @@
 
                     </form>
                 </div>
+                <!--endregion -->
+                <!--#region French Press  -->
                 <div class="row">
                     <h3 id="French">Ultimate french press</h3>
                     <iframe width="100%" height="315"
@@ -135,14 +148,17 @@
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen></iframe>
 
-                    <form >
+                    <form>
                         <div class="row">
                             <div class="one-half column">
                                 <label for="targetLiquid">Liquid Size</label>
-                                <input type="number" name="targetLiquid" value="500" oninput="calculateFrenchPress(this)"> ml
+                                <input type="number" name="targetLiquid" value="500"
+                                    oninput="calculateFrenchPress(this)"> ml
                                 <label for="groundCoffee">Ground coffee</label>
-                                <input type="number"name="groundCoffee" value="30" oninput="calculateFrenchPress(this)" step="0.1"> g
-                                <label for="amountWater">Water (to boil)</label><output name="amountWater">500</output> ml
+                                <input type="number" name="groundCoffee" value="30" oninput="calculateFrenchPress(this)"
+                                    step="0.1"> g
+                                <label for="amountWater">Water (to boil)</label><output name="amountWater">500</output>
+                                ml
                             </div>
                             <div class="one-half column">
                                 <h4>Breakdown</h4>
@@ -158,6 +174,8 @@
 
                     </form>
                 </div>
+                <!--endregion -->
+                <!--#region AeroPress  -->
                 <div class="row">
                     <h3 id="aeropress">The Ultimate AeroPress Technique</h3>
                     <iframe width="100%" height="315"
@@ -166,27 +184,68 @@
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen></iframe>
 
-                    <form >
+                    <form>
                         <div class="row">
                             <div class="one-half column">
                                 <label for="targetLiquid">Liquid Size</label>
-                                <input type="number" name="targetLiquid" value="200" oninput="calculateAeroPress(this)"> ml
+                                <input type="number" name="targetLiquid" value="200" oninput="calculateAeroPress(this)">
+                                ml
                                 <label for="groundCoffee">Ground coffee</label>
-                                <input type="number"name="groundCoffee" value="11" oninput="calculateAeroPress(this)" step="0.1"> g
-                                <label for="amountWater">Water (to boil)</label><output name="amountWater">200</output> ml
+                                <input type="number" name="groundCoffee" value="11" oninput="calculateAeroPress(this)"
+                                    step="0.1"> g
+                                <label for="amountWater">Water (to boil)</label><output name="amountWater">200</output>
+                                ml
                             </div>
                             <div class="one-half column">
                                 <h4>Breakdown</h4>
-                                <b>Before: </b> Put the filter into the cap. Don't rinse or preheat the brewer (it doesn't make any difference) <br>
-                                <code>0:00</code> Put coffee into the brewer and then add water, aiming to wet all the coffee during pouring <br>
+                                <b>Before: </b> Put the filter into the cap. Don't rinse or preheat the brewer (it
+                                doesn't make any difference) <br>
+                                <code>0:00</code> Put coffee into the brewer and then add water, aiming to wet all the
+                                coffee during pouring <br>
                                 <code>0:01</code> Place the piston piece into the top of the brewer, about 1cm in <br>
-                                <code>2:00</code> Holding the brewer and the piston, gently swirl the brewer <b>remove brewer from scale</b> <br>
+                                <code>2:00</code> Holding the brewer and the piston, gently swirl the brewer <b>remove
+                                    brewer from scale</b> <br>
                                 <code>2:30</code> Press gently all the way <br>
                             </div>
                         </div>
 
                     </form>
                 </div>
+                <!--endregion -->
+                <!--#region Clever Dripper  -->
+                <div class="row">
+                    <h3 id="cleverdripper">The Ultimate Clever Dripper Technique</h3>
+                    <iframe width="100%" height="315"
+                        src="https://www.youtube-nocookie.com/embed/RpOdennxP24?controls=0" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                    <!-- max recommend 400g / absoult max 500g  liquid-->
+                    <form>
+                        <div class="row">
+                            <div class="one-half column">
+                                <label for="targetLiquid">Liquid Size</label>
+                                <input type="number" name="targetLiquid" value="250"
+                                    oninput="calculateCleverDripper(this)"> ml
+                                <label for="groundCoffee">Ground coffee</label>
+                                <input type="number" name="groundCoffee" value="16.3"
+                                    oninput="calculateCleverDripper(this)" step="0.1"> g
+                                <label for="amountWater">Water (to boil)</label><output name="amountWater">200</output>
+                                ml
+                            </div>
+                            <div class="one-half column">
+                                <h4>Breakdown</h4>
+                                <b>Before: </b> Fold the filter so it'll fit better in the brewer. Put it in the brewer and rinse
+                                the filter with hot water. <br>
+                                <code>0:00</code> Fill the brewer with <output name="pour1total">250</output> then add the coffee grounds. Give it a little stir to combine. <br>
+                                <code>2:00</code> Stir the top to break the crust <br>
+                                <code>2:30</code> Let the coffee drain <br>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                <!--endregion -->
             </div>
             <div class="three columns">
                 <div id="navbar">
@@ -194,6 +253,7 @@
                     <a href="#V60">Ultimate V60 (and Chemex)</a>
                     <a href="#French">Ultimate french press</a>
                     <a href="#aeropress">The Ultimate AeroPress Technique</a>
+                    <a href="#cleverdripper">The Ultimate Clever Dripper Technique</a>
                 </div>
 
             </div>
@@ -204,8 +264,8 @@
         function calculateAeroPress(element) {
 
             let form = getFormElement(element);
-            let coffePerLiter = 55;
-            liquidAndGroudns(form, element, coffePerLiter);
+            let coffeePerLiter = 55;
+            liquidAndGroudns(form, element, coffeePerLiter);
 
 
             let amountLiquid = parseFloat(form.targetLiquid.value);
@@ -216,8 +276,8 @@
         function calculateFrenchPress(element) {
 
             let form = getFormElement(element);
-            let coffePerLiter = 60;
-            liquidAndGroudns(form, element, coffePerLiter);
+            let coffeePerLiter = 60;
+            liquidAndGroudns(form, element, coffeePerLiter);
 
 
             let amountLiquid = parseFloat(form.targetLiquid.value);
@@ -225,26 +285,38 @@
 
         }
 
-        function calculateV60(element) {
-            let coffePerLiter = 60;
+        function calculateCleverDripper(element) {
+            let coffeePerLiter = 65;
             let form = getFormElement(element);
-            
-            liquidAndGroudns(form, element, coffePerLiter);
+
+            liquidAndGroudns(form, element, coffeePerLiter);
 
             let amountLiquid = parseFloat(form.targetLiquid.value);
-            calculateBloom(form, amountLiquid, coffePerLiter);
+            
+            form.pour1total.value = amountLiquid.toFixed(1);
+            setWaterToBoil(form, amountLiquid);
+        }
+
+        function calculateV60(element) {
+            let coffeePerLiter = 60;
+            let form = getFormElement(element);
+
+            liquidAndGroudns(form, element, coffeePerLiter);
+
+            let amountLiquid = parseFloat(form.targetLiquid.value);
+            calculateBloom(form, amountLiquid, coffeePerLiter);
             calculatePour(form, amountLiquid);
             setWaterToBoil(form, amountLiquid);
         }
 
-        function calculateIcedCoffe(element) {
-            let coffePerLiter = 65;
-            let form = getFormElement(element, coffePerLiter);
-            liquidAndGroudns(form, element, coffePerLiter);
+        function calculateIcedCoffee(element) {
+            let coffeePerLiter = 65;
+            let form = getFormElement(element, coffeePerLiter);
+            liquidAndGroudns(form, element, coffeePerLiter);
             let icePercent = parseFloat(form.icePercentInput.value);
             let goalLiquid = parseFloat(form.targetLiquid.value);
             let amountLiquid = ((1 - icePercent / 100) * goalLiquid);
-            calculateBloom(form, goalLiquid, coffePerLiter);
+            calculateBloom(form, goalLiquid, coffeePerLiter);
             calculatePour(form, amountLiquid);
             setWaterToBoil(form, amountLiquid);
 
@@ -253,26 +325,27 @@
             form.amountIce2.value = ((icePercent / 100) * goalLiquid).toFixed(1);
         }
 
-        function liquidAndGroudns(form, element, coffePerLiter){
-            if(element.name == "groundCoffee"){
-                calculateLiquidSize(form, parseFloat(element.value), coffePerLiter);
-            }else{
-            let goalLiquid = parseFloat(form.targetLiquid.value);
-            calculateGroundCoffee(form, goalLiquid, coffePerLiter);
+        function liquidAndGroudns(form, element, coffeePerLiter) {
+            if (element.name == "groundCoffee") {
+                calculateLiquidSize(form, parseFloat(element.value), coffeePerLiter);
+            } else {
+                let goalLiquid = parseFloat(form.targetLiquid.value);
+                calculateGroundCoffee(form, goalLiquid, coffeePerLiter);
             }
         }
 
-        function calculateLiquidSize(element, groundCoffee, coffePerLiter = 60) {
-            let  targetLiquid = groundCoffee * 1000 / coffePerLiter;
+        function calculateLiquidSize(element, groundCoffee, coffeePerLiter = 60) {
+            let targetLiquid = groundCoffee * 1000 / coffeePerLiter;
             element.targetLiquid.value = targetLiquid.toFixed(1);
         }
-        function calculateGroundCoffee(element, amountLiquid, coffePerLiter = 60) {
-            let ground = (amountLiquid / 1000 * coffePerLiter);
+
+        function calculateGroundCoffee(element, amountLiquid, coffeePerLiter = 60) {
+            let ground = (amountLiquid / 1000 * coffeePerLiter);
             element.groundCoffee.value = ground.toFixed(1);
         }
 
-        function calculateBloom(element, amountLiquid, coffePerLiter = 60) {
-            let blooming = (amountLiquid / 500 * coffePerLiter);
+        function calculateBloom(element, amountLiquid, coffeePerLiter = 60) {
+            let blooming = (amountLiquid / 500 * coffeePerLiter);
             element.amountBloom.value = blooming.toFixed(1);
             element.amountBloom2.value = blooming.toFixed(1);
         }
@@ -292,12 +365,10 @@
             element.amountWater.value = amountLiquid.toFixed(1);
         }
 
-        function getFormElement(element){
+        function getFormElement(element) {
             let form = element.closest("form");
             return form;
         }
-
-
     </script>
     <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->

@@ -5,14 +5,20 @@ header{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    display: flex;
+    align-content: center;
+    justify-content: center;
 }
 .header-text{
-    text-align: center;
-    position: absolute;
-    top: 25%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     color: whitesmoke;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    max-width: 900px;
+    padding-left: 1em;
+    padding-right: 1em;
 }
 .header-text h2{
 
@@ -23,6 +29,8 @@ header{
  #navbar {
     padding-left: 5%;
     overflow: hidden;
+    position: sticky;
+    top: 0;
   }
   
   /* Navbar links */
