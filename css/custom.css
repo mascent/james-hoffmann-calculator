@@ -1,3 +1,8 @@
+:root {
+  --main-bg-color: white;
+  --accent-bg-color: whitesmoke;
+}
+
 header {
   height: 40vh;
 
@@ -28,17 +33,16 @@ header {
 }
 
 /* Style the navbar */
-#navbar {
+#sidebar {
   padding-left: 5%;
   overflow: hidden;
   position: sticky;
-  top: 5rem;
-  min-width: 25rem;
-  flex: 3 1;
-  align-self: flex-start;
+  bottom: 0;
+  align-content: center;
+}
+#navbar{
   display: none;
 }
-
 /* Navbar links */
 #navbar a {
   display: block;
@@ -65,6 +69,11 @@ header {
   flex-wrap: wrap;
 }
 
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
 .recipieWrapper {
   flex: 9 0;
   min-width: 65%;
@@ -74,8 +83,48 @@ header {
   flex: 1 1;
 }
 
+#clock {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--accent-bg-color);
+  padding: 1%;
+  border-radius: 1rem 1rem 0 0;
+  max-width: 300px;
+}
+#clockButtons{
+  display: flex;
+  flex-direction: row;
+  column-gap: 10px;
+}
+#clock code{
+  font-size: x-large;
+  justify-self: center;
+  text-align: center;
+}
+
 @media (min-width: 900px) {
   #navbar {
     display: block;
+  }
+  #sidebar{
+    position: sticky;
+  top: 5rem;
+  min-width: 25rem;
+  flex: 3 1;
+  align-self: flex-start;
+  }
+
+  .content {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  #clock{
+  border-radius: 1rem;
+  }
+  #clockButtons{
+    flex-direction: column;
   }
 }
