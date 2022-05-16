@@ -40,17 +40,15 @@
         </div>
     </header>
     <div class="container">
-        <div class="row" style="margin-top: 5%;">
-            <div class="ten columns">
-                <p>This is just a small recreation of the <a
-                        href="https://coda.io/@alessandro-mingione/hoffmann-coffee-calculator">Hoffmann coffee
-                        Calculator from Alessandro Mingione</a>. In this version you can set any liquid size and I fixed
-                    an error with the amount of water used in the iced coffee calculation. Feel free to contribute and
-                    fix errors on github.</p>
-            </div>
+        <div class="row" style="margin: 5rem;">
+            <p>This is just a small recreation of the <a
+                    href="https://coda.io/@alessandro-mingione/hoffmann-coffee-calculator">Hoffmann coffee
+                    Calculator from Alessandro Mingione</a>. In this version you can set any liquid size and I fixed
+                an error with the amount of water used in the iced coffee calculation. Feel free to contribute and
+                fix errors on github.</p>
         </div>
         <div class="row">
-            <div class="nine columns">
+            <div class="recipieWrapper">
                 <!--#region IcedCoffee  -->
                 <div class="row">
                     <h3 id="IcedCoffee">Iced filter coffee</h3>
@@ -61,24 +59,25 @@
 
                     <form>
                         <div class="row">
-                            <div class="one-half column">
+                            <div class="half">
                                 <label for="targetLiquid">Liquid Size</label>
                                 <input type="number" name="targetLiquid" value="500"
-                                    oninput="calculateIcedCoffee(this)"> ml
+                                    oninput="calculateIcedCoffee(this)"> ml <br>
                                 <label for="groundCoffee">Ground coffee</label>
                                 <input type="number" name="groundCoffee" value="32.5"
-                                    oninput="calculateIcedCoffee(this)" step="0.1"> g
+                                    oninput="calculateIcedCoffee(this)" step="0.1"> g <br>
                                 <label for="icePercentInput">% of ice</label>
 
                                 <div class="row u-full-width"> <input type="range" name="icePercentInput" value="40"
                                         oninput="calculateIcedCoffee(this)"> <output name="amountIcePercent">40</output>
-
-                                    <label for="amountIce">Ice</label><output name="amountIce">200</output> g
-                                    <label for="amountWater">Water (to boil)</label><output
-                                        name="amountWater">300</output> ml
-                                    <label for="amountBloom">Water for bloom</label><output
-                                        name="amountBloom">65</output> ml
                                 </div>
+
+                                <label for="amountIce">Ice</label><output name="amountIce">200</output> g
+                                <label for="amountWater">Water (to boil)</label><output name="amountWater">300</output>
+                                ml
+                                <label for="amountBloom">Water for bloom</label><output name="amountBloom">65</output>
+                                ml
+
                             </div>
                             <div class="one-half column">
                                 <h4>Breakdown</h4>
@@ -235,9 +234,11 @@
                             </div>
                             <div class="one-half column">
                                 <h4>Breakdown</h4>
-                                <b>Before: </b> Fold the filter so it'll fit better in the brewer. Put it in the brewer and rinse
+                                <b>Before: </b> Fold the filter so it'll fit better in the brewer. Put it in the brewer
+                                and rinse
                                 the filter with hot water. <br>
-                                <code>0:00</code> Fill the brewer with <output name="pour1total">250</output> then add the coffee grounds. Give it a little stir to combine. <br>
+                                <code>0:00</code> Fill the brewer with <output name="pour1total">250</output> then add
+                                the coffee grounds. Give it a little stir to combine. <br>
                                 <code>2:00</code> Stir the top to break the crust <br>
                                 <code>2:30</code> Let the coffee drain <br>
                             </div>
@@ -247,15 +248,12 @@
                 </div>
                 <!--endregion -->
             </div>
-            <div class="three columns">
-                <div id="navbar">
-                    <a href="#IcedCoffee">Iced Coffee</a>
-                    <a href="#V60">Ultimate V60 (and Chemex)</a>
-                    <a href="#French">Ultimate french press</a>
-                    <a href="#aeropress">The Ultimate AeroPress Technique</a>
-                    <a href="#cleverdripper">The Ultimate Clever Dripper Technique</a>
-                </div>
-
+            <div id="navbar">
+                <a href="#IcedCoffee">Iced Coffee</a>
+                <a href="#V60">Ultimate V60 (and Chemex)</a>
+                <a href="#French">Ultimate french press</a>
+                <a href="#aeropress">The Ultimate AeroPress Technique</a>
+                <a href="#cleverdripper">The Ultimate Clever Dripper Technique</a>
             </div>
         </div>
     </div>
@@ -292,7 +290,7 @@
             liquidAndGroudns(form, element, coffeePerLiter);
 
             let amountLiquid = parseFloat(form.targetLiquid.value);
-            
+
             form.pour1total.value = amountLiquid.toFixed(1);
             setWaterToBoil(form, amountLiquid);
         }
