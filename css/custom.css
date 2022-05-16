@@ -1,42 +1,81 @@
-header{
-    height: 40vh;
-    
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./../images/header.avif) ;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    align-content: center;
-    justify-content: center;
-}
-.header-text{
-    color: whitesmoke;
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-    max-width: 900px;
-    padding-left: 1em;
-    padding-right: 1em;
-}
-.header-text h2{
+header {
+  height: 40vh;
 
-    color: lightgrey;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./../images/header.avif);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-content: center;
+  justify-content: center;
 }
 
- /* Style the navbar */
- #navbar {
-    padding-left: 5%;
-    overflow: hidden;
-    position: sticky;
-    top: 0;
-  }
-  
-  /* Navbar links */
-  #navbar a {
+.header-text {
+  color: whitesmoke;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  max-width: 900px;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.header-text h2 {
+
+  color: lightgrey;
+}
+
+/* Style the navbar */
+#navbar {
+  padding-left: 5%;
+  overflow: hidden;
+  position: sticky;
+  top: 5rem;
+  min-width: 25rem;
+  flex: 3 1;
+  align-self: flex-start;
+  display: none;
+}
+
+/* Navbar links */
+#navbar a {
+  display: block;
+  text-decoration: none;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.recipieWrapper {
+  flex: 9 0;
+  min-width: 65%;
+}
+
+.half {
+  flex: 1 1;
+}
+
+@media (min-width: 900px) {
+  #navbar {
     display: block;
-    text-decoration: none;
-    width: 100%;
-    margin-bottom: 10px;
   }
+}
