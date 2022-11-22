@@ -1,0 +1,5 @@
+<div id="navbar">
+    {% for recipe in site.recipes %}
+    <a href="#{{recipe.shortHand}}">{{ recipe.title }}</a>
+    {% endfor %}
+</div>

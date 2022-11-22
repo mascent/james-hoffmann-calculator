@@ -1,0 +1,98 @@
+<script>
+    window.onload = function () {
+
+        var seconds = 00;
+        var tens = 00;
+        var minutes = 00;
+        var lastCalledAt = 00;
+        var runTime = 0;
+        var appendTens = document.getElementById("tens")
+        var appendSeconds = document.getElementById("seconds")
+        var appendMinutes = document.getElementById("minutes")
+        var buttonStart = document.getElementById('button-start');
+        var buttonReset = document.getElementById('button-reset');
+        var stopWatchInterval;
+        var running = false;
+        var updateSeconds = false;
+        var updateMinutes =false;
+        buttonStart.onclick = function () {
+
+            clearInterval(stopWatchInterval);
+            if (!running) {
+                lastCalledAt = Date.now();
+                stopWatchInterval = setInterval(startTimer, 10);
+                running = true;
+                return;
+            }
+            running = false;
+        }
+
+
+        buttonReset.onclick = function () {
+            clearInterval(stopWatchInterval);
+            tens = "00";
+            seconds = "00";
+            minutes = "00";
+            runTime = 0;
+            appendTens.innerHTML = tens;
+            appendSeconds.innerHTML = seconds;
+            appendMinutes.innerHTML = minutes;
+            running = false;
+        }
+
+
+
+        function startTimer() {
+            const now = Date.now();
+            const lastInterval = now - lastCalledAt;
+            lastCalledAt = now;
+
+            runTime += lastInterval;
+            tens = Math.floor(runTime / 10);
+
+            if (tens > 99) {
+                seconds = Math.floor(tens / 100);
+                tens = tens % 100;
+                updateSeconds = true;
+            }
+
+            if (seconds > 59) {
+                minutes = Math.floor(seconds / 60);
+                seconds = seconds % 60;
+                updateMinutes = true;
+            }
+
+            if (tens <= 9) {
+                appendTens.innerHTML = "0" + tens;
+            } else {
+                appendTens.innerHTML = tens;
+            }
+            if (updateSeconds) {
+                updateSeconds = false;
+                if (seconds <= 9) {
+                    appendSeconds.innerHTML = "0" + seconds;
+                } else {
+                    appendSeconds.innerHTML = seconds;
+                }
+            }
+            if (updateMinutes) {
+                updateMinutes = false;
+                if (minutes <= 9) {
+                    appendMinutes.innerHTML = "0" + minutes;
+                } else {
+                    appendMinutes.innerHTML = minutes;
+                }
+            }
+        }
+
+
+    }
+</script>
+
+<div id="clock">
+    <code><span id="minutes">00</span>:<span id="seconds">00</span>:<span id="tens">00</span></code>
+    <div id="clockButtons">
+        <button id="button-start">Start/Stop</button>
+        <button id="button-reset">Reset</button>
+    </div>
+</div>
