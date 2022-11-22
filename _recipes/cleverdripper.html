@@ -1,0 +1,45 @@
+---
+# this is an empty front matter
+title: The Ultimate Clever Dripper Technique
+shortHand: cleverdripper
+videoUrl: https://www.youtube-nocookie.com/embed/RpOdennxP24?controls=0
+---
+<form>
+    <div class="row">
+        <div class="one-half column">
+            <label for="targetLiquid">Liquid Size</label>
+            <input type="number" name="targetLiquid" value="250"
+                oninput="calculateCleverDripper(this)"> ml
+            <label for="groundCoffee">Ground coffee</label>
+            <input type="number" name="groundCoffee" value="16.3"
+                oninput="calculateCleverDripper(this)" step="0.1"> g
+            <label for="amountWater">Water (to boil)</label><output name="amountWater">200</output>
+            ml
+        </div>
+        <div class="one-half column">
+            <h4>Breakdown</h4>
+            <b>Before: </b> Fold the filter so it'll fit better in the brewer. Put it in the brewer
+            and rinse
+            the filter with hot water. <br>
+            <code>0:00</code> Fill the brewer with <output name="pour1total">250</output> then add
+            the coffee grounds. Give it a little stir to combine. <br>
+            <code>2:00</code> Stir the top to break the crust <br>
+            <code>2:30</code> Let the coffee drain <br>
+        </div>
+    </div>
+
+</form>
+<script>
+    function calculateCleverDripper(element) {
+        let coffeePerLiter = 65;
+        let form = getFormElement(element);
+    
+        liquidAndGrounds(form, element, coffeePerLiter);
+    
+        let amountLiquid = parseFloat(form.targetLiquid.value);
+    
+        form.pour1total.value = amountLiquid.toFixed(1);
+        setWaterToBoil(form, amountLiquid);
+    }
+</script>
+    

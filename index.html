@@ -1,3 +1,6 @@
+---
+# this is an empty front matter
+---
 <!DOCTYPE html>
 <html lang="en">
 
@@ -49,231 +52,29 @@
         </div>
         <div class="content">
             <div class="recipieWrapper">
-                <!--#region IcedCoffee  -->
+                {% for recipe in site.recipes %}
+                <!--#region {{ recipe.shortHand }}  -->
                 <div class="row">
-                    <h3 id="IcedCoffee">Iced filter coffee</h3>
-                    <iframe width="100%" height="315"
-                        src="https://www.youtube-nocookie.com/embed/PApBycDrPo0?controls=0" title="YouTube video player"
+                    <h3 id="{{ recipe.shortHand }}">{{ recipe.title }}</h3>
+                    <iframe width="100%" height="315" src="{{ recipe.videoUrl }}" title="YouTube video player"
                         frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen></iframe>
+                    {{ recipe.content }}
 
-                    <form>
-                        <div class="row">
-                            <div class="half">
-                                <label for="targetLiquid">Liquid Size</label>
-                                <input type="number" name="targetLiquid" value="500"
-                                    oninput="calculateIcedCoffee(this)"> ml <br>
-                                <label for="groundCoffee">Ground coffee</label>
-                                <input type="number" name="groundCoffee" value="32.5"
-                                    oninput="calculateIcedCoffee(this)" step="0.1"> g <br>
-                                <label for="icePercentInput">% of ice</label>
-
-                                <div class="row u-full-width"> <input type="range" name="icePercentInput" value="40"
-                                        oninput="calculateIcedCoffee(this)"> <output name="amountIcePercent">40</output>
-                                </div>
-
-                                <label for="amountIce">Ice</label><output name="amountIce">200</output> g
-                                <label for="amountWater">Water (to boil)</label><output name="amountWater">300</output>
-                                ml
-                                <label for="amountBloom">Water for bloom</label><output name="amountBloom">65</output>
-                                ml
-
-                            </div>
-                            <div class="one-half column">
-                                <h4>Breakdown</h4>
-                                <b>Before: </b> Prepare decanter with <output name="amountIce2">200</output> g of ice,
-                                rinse paper filter
-                                under sink. <br>
-                                <code>0:00</code> Bloom with <output name="amountBloom2">65</output> ml, wait 45s. <br>
-                                <code>0:45</code> Pour <output name="pour1">115</output> ml in 30s. <b>Total: <output
-                                        name="pour1total">180</output> g</b> <br>
-                                <code>1:15</code> Pour <output name="pour2">120</output> ml in 30s. <b>Total: <output
-                                        name="pour2total">300</output> g</b> <br>
-                                <code>1:45</code> Stir 1x clockwise and 1x counterclockwise, swirl, and let it draw
-                                down. <br>
-                                <b>After: </b> Swirl brew in decanter to melt all the ice. Pour onto fresh ice cubes in
-                                glass.
-                            </div>
-                        </div>
-
-                    </form>
                 </div>
                 <!--endregion -->
-                <!--#region V60  -->
-                <div class="row">
-                    <h3 id="V60">Ultimate V60 (and Chemex)</h3>
-                    <iframe width="100%" height="315"
-                        src="https://www.youtube-nocookie.com/embed/AI4ynXzkSQo?controls=0" title="YouTube video player"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
-
-                    <form>
-                        <div class="row">
-                            <div class="one-half column">
-                                <label for="targetLiquid">Liquid Size</label>
-                                <input type="number" name="targetLiquid" value="500" oninput="calculateV60(this)"> ml
-                                <label for="groundCoffee">Ground coffee</label>
-                                <input type="number" name="groundCoffee" value="30" oninput="calculateV60(this)"
-                                    step="0.1"> g
-                                <label for="amountWater">Water (to boil)</label><output name="amountWater">500</output>
-                                ml
-
-                                <label for="amountBloom">Water for bloom</label><output name="amountBloom">60</output>
-                                ml
-                            </div>
-                            <div class="one-half column">
-                                <h4>Breakdown</h4>
-                                <b>Before: </b> rinse paper filter with hot water. <br>
-                                <code>0:00</code> Bloom with <output name="amountBloom2">60</output> ml, wait 45s. <br>
-                                <code>0:45</code> Pour <output name="pour1">240</output> ml in 30s. <b>Total: <output
-                                        name="pour1total">300</output> g</b> <br>
-                                <code>1:15</code> Pour <output name="pour2">200</output> ml in 30s. <b>Total: <output
-                                        name="pour2total">500</output> g</b> <br>
-                                <code>1:45</code> Stir 1x clockwise and 1x counterclockwise, swirl, and let it draw
-                                down. <br>
-                            </div>
-                        </div>
-
-                    </form>
-                </div>
-                <!--endregion -->
-                <!--#region French Press  -->
-                <div class="row">
-                    <h3 id="French">Ultimate french press</h3>
-                    <iframe width="100%" height="315"
-                        src="https://www.youtube-nocookie.com/embed/st571DYYTR8?controls=0" title="YouTube video player"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
-
-                    <form>
-                        <div class="row">
-                            <div class="one-half column">
-                                <label for="targetLiquid">Liquid Size</label>
-                                <input type="number" name="targetLiquid" value="500"
-                                    oninput="calculateFrenchPress(this)"> ml
-                                <label for="groundCoffee">Ground coffee</label>
-                                <input type="number" name="groundCoffee" value="30" oninput="calculateFrenchPress(this)"
-                                    step="0.1"> g
-                                <label for="amountWater">Water (to boil)</label><output name="amountWater">500</output>
-                                ml
-                            </div>
-                            <div class="one-half column">
-                                <h4>Breakdown</h4>
-                                <code>0:00</code> Combine coffee and water, let sit for 4 minutes. <br>
-                                <code>4:00</code> Grab two spoons, <b>stir</b> the crust on the top, stuff will begin to
-                                fall down, <b>scoop</b> away everything that's left floating on top. <b>Do nothing for
-                                    5+ minutes</b>(recommended activities: read the newspaper, make breakfast, start a
-                                rebellion).<br>
-                                <code>12:00ish</code> Put the plunger right on the surface of the coffee, pour coffee in
-                                the cup. <br>
-                            </div>
-                        </div>
-
-                    </form>
-                </div>
-                <!--endregion -->
-                <!--#region AeroPress  -->
-                <div class="row">
-                    <h3 id="aeropress">The Ultimate AeroPress Technique</h3>
-                    <iframe width="100%" height="315"
-                        src="https://www.youtube-nocookie.com/embed/j6VlT_jUVPc?controls=0" title="YouTube video player"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
-
-                    <form>
-                        <div class="row">
-                            <div class="one-half column">
-                                <label for="targetLiquid">Liquid Size</label>
-                                <input type="number" name="targetLiquid" value="200" oninput="calculateAeroPress(this)">
-                                ml
-                                <label for="groundCoffee">Ground coffee</label>
-                                <input type="number" name="groundCoffee" value="11" oninput="calculateAeroPress(this)"
-                                    step="0.1"> g
-                                <label for="amountWater">Water (to boil)</label><output name="amountWater">200</output>
-                                ml
-                            </div>
-                            <div class="one-half column">
-                                <h4>Breakdown</h4>
-                                <b>Before: </b> Put the filter into the cap. Don't rinse or preheat the brewer (it
-                                doesn't make any difference) <br>
-                                <code>0:00</code> Put coffee into the brewer and then add water, aiming to wet all the
-                                coffee during pouring <br>
-                                <code>0:01</code> Place the piston piece into the top of the brewer, about 1cm in <br>
-                                <code>2:00</code> Holding the brewer and the piston, gently swirl the brewer <b>remove
-                                    brewer from scale</b> <br>
-                                <code>2:30</code> Press gently all the way <br>
-                            </div>
-                        </div>
-
-                    </form>
-                </div>
-                <!--endregion -->
-                <!--#region Clever Dripper  -->
-                <div class="row">
-                    <h3 id="cleverdripper">The Ultimate Clever Dripper Technique</h3>
-                    <iframe width="100%" height="315"
-                        src="https://www.youtube-nocookie.com/embed/RpOdennxP24?controls=0" title="YouTube video player"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
-                    <!-- max recommend 400g / absoult max 500g  liquid-->
-                    <form>
-                        <div class="row">
-                            <div class="one-half column">
-                                <label for="targetLiquid">Liquid Size</label>
-                                <input type="number" name="targetLiquid" value="250"
-                                    oninput="calculateCleverDripper(this)"> ml
-                                <label for="groundCoffee">Ground coffee</label>
-                                <input type="number" name="groundCoffee" value="16.3"
-                                    oninput="calculateCleverDripper(this)" step="0.1"> g
-                                <label for="amountWater">Water (to boil)</label><output name="amountWater">200</output>
-                                ml
-                            </div>
-                            <div class="one-half column">
-                                <h4>Breakdown</h4>
-                                <b>Before: </b> Fold the filter so it'll fit better in the brewer. Put it in the brewer
-                                and rinse
-                                the filter with hot water. <br>
-                                <code>0:00</code> Fill the brewer with <output name="pour1total">250</output> then add
-                                the coffee grounds. Give it a little stir to combine. <br>
-                                <code>2:00</code> Stir the top to break the crust <br>
-                                <code>2:30</code> Let the coffee drain <br>
-                            </div>
-                        </div>
-
-                    </form>
-                </div>
-                <!--endregion -->
+                {% endfor %}
             </div>
-            <div id="sidebar">
-                <div id="navbar">
-                    <a href="#IcedCoffee">Iced Coffee</a>
-                    <a href="#V60">Ultimate V60 (and Chemex)</a>
-                    <a href="#French">Ultimate french press</a>
-                    <a href="#aeropress">The Ultimate AeroPress Technique</a>
-                    <a href="#cleverdripper">The Ultimate Clever Dripper Technique</a>
-                </div>
-                <div id="clock">
-                    <code><span id="minutes">00</span>:<span id="seconds">00</span>:<span id="tens">00</span></code>
-                    <div id="clockButtons">
-                        <button id="button-start">Start/Stop</button>
-                        <button id="button-reset">Reset</button>
-                    </div>
-                </div>
-            </div>
-            <footer>
+            {% include sidebar.html %}
 
         </div>
     </div>
+    <footer>
+
     </footer>
     <script type="text/javascript" src="js/calculator.js"> </script>
-    <script type="text/javascript" src="js/clock.js"></script>
-    <!-- End Document
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
 </body>
 
 </html>

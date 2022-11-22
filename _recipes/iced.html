@@ -1,0 +1,63 @@
+---
+# this is an empty front matter
+title: Iced filter coffee
+shortHand: IcedCoffee
+videoUrl: https://www.youtube-nocookie.com/embed/PApBycDrPo0?controls=0
+---
+
+<form>
+    <div class="row">
+        <div class="half">
+            <label for="targetLiquid">Liquid Size</label>
+            <input type="number" name="targetLiquid" value="500" oninput="calculateIcedCoffee(this)"> ml <br>
+            <label for="groundCoffee">Ground coffee</label>
+            <input type="number" name="groundCoffee" value="32.5" oninput="calculateIcedCoffee(this)" step="0.1"> g
+            <br>
+            <label for="icePercentInput">% of ice</label>
+
+            <div class="row u-full-width"> <input type="range" name="icePercentInput" value="40"
+                    oninput="calculateIcedCoffee(this)"> <output name="amountIcePercent">40</output>
+            </div>
+
+            <label for="amountIce">Ice</label><output name="amountIce">200</output> g
+            <label for="amountWater">Water (to boil)</label><output name="amountWater">300</output>
+            ml
+            <label for="amountBloom">Water for bloom</label><output name="amountBloom">65</output>
+            ml
+
+        </div>
+        <div class="one-half column">
+            <h4>Breakdown</h4>
+            <b>Before: </b> Prepare decanter with <output name="amountIce2">200</output> g of ice,
+            rinse paper filter
+            under sink. <br>
+            <code>0:00</code> Bloom with <output name="amountBloom2">65</output> ml, wait 45s. <br>
+            <code>0:45</code> Pour <output name="pour1">115</output> ml in 30s. <b>Total: <output
+                    name="pour1total">180</output> g</b> <br>
+            <code>1:15</code> Pour <output name="pour2">120</output> ml in 30s. <b>Total: <output
+                    name="pour2total">300</output> g</b> <br>
+            <code>1:45</code> Stir 1x clockwise and 1x counterclockwise, swirl, and let it draw
+            down. <br>
+            <b>After: </b> Swirl brew in decanter to melt all the ice. Pour onto fresh ice cubes in
+            glass.
+        </div>
+    </div>
+
+</form>
+<script>
+    function calculateIcedCoffee(element) {
+        let coffeePerLiter = 65;
+        let form = getFormElement(element, coffeePerLiter);
+        liquidAndGrounds(form, element, coffeePerLiter);
+        let icePercent = parseFloat(form.icePercentInput.value);
+        let goalLiquid = parseFloat(form.targetLiquid.value);
+        let amountLiquid = ((1 - icePercent / 100) * goalLiquid);
+        calculateBloom(form, goalLiquid, coffeePerLiter);
+        calculatePour(form, amountLiquid);
+        setWaterToBoil(form, amountLiquid);
+
+        form.amountIcePercent.value = icePercent;
+        form.amountIce.value = ((icePercent / 100) * goalLiquid).toFixed(1);
+        form.amountIce2.value = ((icePercent / 100) * goalLiquid).toFixed(1);
+    }
+</script>
