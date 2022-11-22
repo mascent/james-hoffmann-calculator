@@ -15,6 +15,11 @@ header {
   justify-content: center;
 }
 
+h3 a{
+  text-decoration: none;
+  color: black;
+}
+
 .header-text {
   color: whitesmoke;
   display: flex;
