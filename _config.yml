@@ -21,7 +21,7 @@
 title: Hoffmann fanmade coffee calculator
 email: hoffman-calc@mascent.net
 description: >- 
-A fanmade calculator to quickly find the right rations for James Hoffmanns coffee recipies.
+  A fanmade calculator to quickly find the right rations for James Hoffmanns coffee recipies.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: mascent1
