@@ -2,7 +2,7 @@ function calculateAeroPress(element) {
 
     let form = getFormElement(element);
     let coffeePerLiter = 55;
-    liquidAndGroudns(form, element, coffeePerLiter);
+    liquidAndGrounds(form, element, coffeePerLiter);
 
 
     let amountLiquid = parseFloat(form.targetLiquid.value);
@@ -14,7 +14,7 @@ function calculateFrenchPress(element) {
 
     let form = getFormElement(element);
     let coffeePerLiter = 60;
-    liquidAndGroudns(form, element, coffeePerLiter);
+    liquidAndGrounds(form, element, coffeePerLiter);
 
 
     let amountLiquid = parseFloat(form.targetLiquid.value);
@@ -26,7 +26,7 @@ function calculateCleverDripper(element) {
     let coffeePerLiter = 65;
     let form = getFormElement(element);
 
-    liquidAndGroudns(form, element, coffeePerLiter);
+    liquidAndGrounds(form, element, coffeePerLiter);
 
     let amountLiquid = parseFloat(form.targetLiquid.value);
 
@@ -38,7 +38,7 @@ function calculateV60(element) {
     let coffeePerLiter = 60;
     let form = getFormElement(element);
 
-    liquidAndGroudns(form, element, coffeePerLiter);
+    liquidAndGrounds(form, element, coffeePerLiter);
 
     let amountLiquid = parseFloat(form.targetLiquid.value);
     calculateBloom(form, amountLiquid, coffeePerLiter);
@@ -49,7 +49,7 @@ function calculateV60(element) {
 function calculateIcedCoffee(element) {
     let coffeePerLiter = 65;
     let form = getFormElement(element, coffeePerLiter);
-    liquidAndGroudns(form, element, coffeePerLiter);
+    liquidAndGrounds(form, element, coffeePerLiter);
     let icePercent = parseFloat(form.icePercentInput.value);
     let goalLiquid = parseFloat(form.targetLiquid.value);
     let amountLiquid = ((1 - icePercent / 100) * goalLiquid);
@@ -62,7 +62,7 @@ function calculateIcedCoffee(element) {
     form.amountIce2.value = ((icePercent / 100) * goalLiquid).toFixed(1);
 }
 
-function liquidAndGroudns(form, element, coffeePerLiter) {
+function liquidAndGrounds(form, element, coffeePerLiter) {
     if (element.name == "groundCoffee") {
         calculateLiquidSize(form, parseFloat(element.value), coffeePerLiter);
     } else {
