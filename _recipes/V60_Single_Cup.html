@@ -1,0 +1,43 @@
+---
+# this is an empty front matter
+title: A Better 1 Cup V60
+shortHand: V60_Single_Cup
+videoUrl: https://www.youtube-nocookie.com/embed/1oB1oDrDkHM?controls=0
+---
+
+<form>
+    <div class="row">
+        <div class="one-half column">
+            <label for="targetLiquid">Liquid Size</label>
+            <input type="number" name="targetLiquid" value="250" oninput="calculateV60_1C(this)"> ml
+            <label for="groundCoffee">Ground coffee</label>
+            <input type="number" name="groundCoffee" value="15" oninput="calculateV60_1C(this)" step="0.1"> g
+            <label for="amountWater">Water (to boil)</label><output name="amountWater">250</output>
+            ml
+
+            <label for="amountBloom">Water for bloom</label><output name="amountBloom">50</output>
+            ml
+        </div>
+        <div class="one-half column">
+            <h4>Breakdown</h4>
+            <b>Before: </b> rinse paper filter with hot water. <br>
+            <code>0:00</code> Pour <output name="amountBloom2">50</output>g of water to bloom <br>
+            <code>0:10</code> Gently Swirl <br>
+            <code>0:15</code> Let bloom for 30 seconds <br>
+            <code>0:45</code> Pour up to <b><output name="pour1total">100</output>g total</b> <br>
+            <code>1:00</code> Pause for 10 seconds <br>
+            <code>1:10</code> Pour up to <b><output name="pour2total">150</output>g total</b> <br>
+            <code>1:20</code> Pause for 10 seconds <br>
+            <code>1:30</code> Pour up to <b><output name="pour3total">200</output>g total</b> <br>
+            <code>1:40</code> Pause for 10 seconds <br>
+            <code>1:50</code> Pour up to <b><output name="pour4total">250</output>g total</b> <br>
+            <code>2:00</code> Gently swirl <br>
+            <code>2:05</code> Let the coffee drain <br>
+
+        </div>
+    </div>
+
+</form>
+<script>
+    function calculateV60_1C(element);
+</script>
