@@ -46,6 +46,25 @@ function calculateV60(element) {
     setWaterToBoil(form, amountLiquid);
 }
 
+function calculateV60_1C(element) {
+    let coffeePerLiter = 60;
+    let form = getFormElement(element);
+
+    liquidAndGroudns(form, element, coffeePerLiter);
+
+    let amountLiquid = parseFloat(form.targetLiquid.value);
+
+    let water_per_step = amountLiquid / 5;
+    form.amountBloom.value = water_per_step.toFixed(1);
+    form.amountBloom2.value = water_per_step.toFixed(1);
+    form.pour1total.value = (water_per_step * 2).toFixed(1);
+    form.pour2total.value = (water_per_step * 3).toFixed(1);
+    form.pour3total.value = (water_per_step * 4).toFixed(1);
+    form.pour4total.value = (water_per_step * 5).toFixed(1);
+
+    setWaterToBoil(form, amountLiquid);
+}
+
 function calculateIcedCoffee(element) {
     let coffeePerLiter = 65;
     let form = getFormElement(element, coffeePerLiter);
@@ -63,7 +82,6 @@ function calculateIcedCoffee(element) {
 }
 
 function calculateMokaPot(element) {
-
     let form = getFormElement(element);
     let coffeePerLiter = 100;
     liquidAndGrounds(form, element, coffeePerLiter);
