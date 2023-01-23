@@ -81,6 +81,16 @@ function calculateIcedCoffee(element) {
     form.amountIce2.value = ((icePercent / 100) * goalLiquid || 0).toFixed(1);
 }
 
+function calculateMokaPot(element) {
+    let form = getFormElement(element);
+    let coffeePerLiter = 100;
+    liquidAndGrounds(form, element, coffeePerLiter);
+    
+    let amountLiquid = parseFloat(form.targetLiquid.value);
+    setWaterToBoil(form, amountLiquid);
+    form.potLiquid.value = amountLiquid ? amountLiquid.toFixed(1) : 0;
+}
+
 function liquidAndGrounds(form, element, coffeePerLiter) {
     if (element.name == "groundCoffee") {
         calculateLiquidSize(form, parseFloat(element.value), coffeePerLiter);

@@ -1,0 +1,30 @@
+---
+# this is an empty front matter
+title: Ultimate Moka Pot 
+shortHand: MokaPot
+videoUrl: https://www.youtube-nocookie.com/embed/BfDLoIvb0w4?controls=0
+---
+<form>
+    <div class="row">
+        <div class="one-half column">
+            <label for="targetLiquid">Liquid Size</label>
+            <input type="number" name="targetLiquid" value="300" oninput="calculateMokaPot(this)"> ml
+            <label for="groundCoffee">Ground coffee</label>
+            <input type="number" name="groundCoffee" value="30" oninput="calculateMokaPot(this)" step="0.1"> g
+            <label for="amountWater">Water (to boil)</label><output name="amountWater">300</output>
+            ml
+        </div>
+        <div class="one-half column">
+            <h4>Breakdown</h4>
+            <b>Before: </b> Fill the base with water just below the valve and measure the water. Round off the amount, this is the total capacity of your moka pot.<br>
+            <b>Optional: </b> If you have a 3+ cups moka pot, you can use an aeropress filter underneath the upper chamber. Wet it slightly so that it doesn't move around.<br>
+            <b>Ground Coffee: </b>Light roast will weight more than a dark roast, so adjust the amount of ground coffee to <b>fill the filter basket completely</b> but not exceed the calculated value.<br>
+      <code>1</code>Add <output name="potLiquid">300</output> ml hot water in the base of the moka pot.<br>
+      <code>2</code>Add the ground coffee in the filter basket and <b>tap it </b>to evenly distribute the coffee.<br>
+            <code>3</code>Screw it carefully and put it on heat on low flame. Keep the lid open while it brews.<br>
+            <code>4</code>At the end of the brew if it starts to angrily spurt and make sputtering noises, take it off the heat and hold the base under cold tap water to cool it down immediately and stop the brew process.<br>
+        </div>
+    </div>
+
+</form>
+
