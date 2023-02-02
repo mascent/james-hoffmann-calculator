@@ -50,7 +50,7 @@ function calculateV60_1C(element) {
     let coffeePerLiter = 60;
     let form = getFormElement(element);
 
-    liquidAndGroudns(form, element, coffeePerLiter);
+    liquidAndGrounds(form, element, coffeePerLiter);
 
     let amountLiquid = parseFloat(form.targetLiquid.value);
 
