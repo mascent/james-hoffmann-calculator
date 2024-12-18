@@ -50,7 +50,7 @@ function calculateV60_1C(element) {
     let coffeePerLiter = 60;
     let form = getFormElement(element);
 
-    liquidAndGroudns(form, element, coffeePerLiter);
+    liquidAndGrounds(form, element, coffeePerLiter);
 
     let amountLiquid = parseFloat(form.targetLiquid.value);
 
@@ -101,20 +101,20 @@ function calculateGroundCoffee(element, amountLiquid, coffeePerLiter = 60) {
 }
 
 function calculateBloom(element, amountLiquid, coffeePerLiter = 60) {
-    let blooming = (amountLiquid || 0 / 500 * coffeePerLiter);
+    let blooming = (amountLiquid || 0) / 500 * coffeePerLiter;
     element.amountBloom.value = blooming.toFixed(1);
     element.amountBloom2.value = blooming.toFixed(1);
 }
 
 function calculatePour(element, amountLiquid) {
     let blooming = parseFloat(element.amountBloom.value);
-    let pour1total = amountLiquid || 0 * 0.6;
+    let pour1total = (amountLiquid || 0) * 0.6;
     let pour1 = pour1total - blooming;
 
     element.pour1total.value = pour1total.toFixed(1);
     element.pour1.value = pour1.toFixed(1);
     element.pour2total.value = amountLiquid ? (amountLiquid).toFixed(1): 0;
-    element.pour2.value = (amountLiquid || 0 - pour1total).toFixed(1);
+    element.pour2.value = ((amountLiquid || 0) - pour1total).toFixed(1);
 }
 
 function setWaterToBoil(element, amountLiquid) {
