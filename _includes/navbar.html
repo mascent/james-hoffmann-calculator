@@ -1,5 +1,5 @@
 <div id="navbar">
     {% for recipe in site.recipes %}
-    <a href="#{{recipe.shortHand}}">{{ recipe.title }}</a>
+    <a href="#{{recipe.shortHand}}" class="recipieFilterSelector" data-author='{{ recipe.authors | downcase | replace: " ", "-" }}' data-device='{{ recipe.device | downcase | replace: " ", "-" }}'>{{ recipe.title }}</a>
     {% endfor %}
 </div>
