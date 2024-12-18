@@ -45,19 +45,5 @@ videoUrl: https://www.youtube-nocookie.com/embed/PApBycDrPo0?controls=0
 
 </form>
 <script>
-    function calculateIcedCoffee(element) {
-        let coffeePerLiter = 65;
-        let form = getFormElement(element, coffeePerLiter);
-        liquidAndGrounds(form, element, coffeePerLiter);
-        let icePercent = parseFloat(form.icePercentInput.value);
-        let goalLiquid = parseFloat(form.targetLiquid.value);
-        let amountLiquid = ((1 - icePercent / 100) * goalLiquid);
-        calculateBloom(form, goalLiquid, coffeePerLiter);
-        calculatePour(form, amountLiquid);
-        setWaterToBoil(form, amountLiquid);
-
-        form.amountIcePercent.value = icePercent;
-        form.amountIce.value = ((icePercent / 100) * goalLiquid).toFixed(1);
-        form.amountIce2.value = ((icePercent / 100) * goalLiquid).toFixed(1);
-    }
+    function calculateIcedCoffee(element);
 </script>
