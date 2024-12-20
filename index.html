@@ -11,7 +11,7 @@
     <meta charset="utf-8">
     <title>Hoffmann fanmade coffee calculator</title>
     <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="creator" content="">
 
     <!-- Mobile Specific Metas
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -56,7 +56,7 @@
             <div class="recipieWrapper">
                 {% for recipe in site.recipes %}
                 <!--#region {{ recipe.shortHand }}  -->
-                <div class="row recipieFilterSelector" data-author='{{ recipe.authors | downcase | replace: " ", "-" }}' data-device='{{ recipe.device | downcase | replace: " ", "-" }}'>
+                <div class="row recipieFilterSelector" data-creator='{{ recipe.creators | downcase | replace: " ", "-" }}' data-device='{{ recipe.device | downcase | replace: " ", "-" }}'>
                     <h3 id="{{ recipe.shortHand }}"><a href="#{{recipe.shortHand}}">{{ recipe.title }}</a></h3>
                     <iframe width="100%" height="315" src="{{ recipe.videoUrl }}" title="YouTube video player"
                         frameborder="0"

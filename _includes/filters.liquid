@@ -1,12 +1,12 @@
-{% assign authors = "All" | split: "," %}
+{% assign creators = "All" | split: "," %}
 {% assign devices = "All"%}
 
 {% for recipe in site.recipes %}
 
-{% if recipe.authors %}
-{% for author in recipe.authors | split: "," %}
-{% assign authorCleaned = author | strip | split: "," %}
-{% assign authors = authors | concat: authorCleaned %}
+{% if recipe.creators %}
+{% for creator in recipe.creators | split: "," %}
+{% assign creatorCleaned = creator | strip | split: "," %}
+{% assign creators = creators | concat: creatorCleaned %}
 {% endfor %}
 {% endif %}
 {% if recipe.device %}
@@ -18,18 +18,18 @@
 
 {% endfor %}
 
-{% assign authors = authors | uniq %}
+{% assign creators = creators | uniq %}
 {% assign devices = devices | uniq %}
 <div>
 <button onclick="toggleFilterMenu()" class="filterToggle ">Filter</button>
 <div class="filter" hidden="">
     <b>Creator:</b>
-    <div class="authors">
-      {% for author in authors %}
+    <div class="creators">
+      {% for creator in creators %}
 
 
       <button class="filter-btn filter-btn-auth {% if forloop.first %}active{% endif -%}"
-        data-filter-author='{{author | downcase |replace: " ", "-"}}'>{{author}}</button>
+        data-filter-creator='{{creator | downcase |replace: " ", "-"}}'>{{creator}}</button>
 
       {% endfor %}
 

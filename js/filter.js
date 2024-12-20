@@ -1,9 +1,9 @@
 const filterMenu = document.querySelector(".filter");
-const filterListAuthor = document.querySelector(".authors");
+const filterListcreator = document.querySelector(".creators");
 const filterListDevice = document.querySelector(".devices");
 const filterButtons = filterMenu.querySelectorAll(".filter-btn");
 const recipies = document.querySelectorAll(".recipieFilterSelector");
-let activeAuthor = "all";
+let activecreator = "all";
 let activeDevice = "all";
 let conferenceIndex = 0;
 
@@ -13,30 +13,30 @@ recipies.forEach((conference) => {
 
 filterButtons.forEach((button) => {
     button.addEventListener("click", (e) => {
-        let isAuthor = false;
+        let iscreator = false;
         if (e.target.classList.contains("filter-btn-auth")) {
-            let confCategory = e.target.getAttribute("data-filter-author");
-            activeAuthor = confCategory;
-            isAuthor = true;
+            let confCategory = e.target.getAttribute("data-filter-creator");
+            activecreator = confCategory;
+            iscreator = true;
         } else {
             let confCategory = e.target.getAttribute("data-filter-device");
             activeDevice = confCategory;
         }
         if (!document.startViewTransition) {
-            updateActiveButton(e.target, isAuthor);
+            updateActiveButton(e.target, iscreator);
             filterEvents();
         }
 
         document.startViewTransition(() => {
-            updateActiveButton(e.target, isAuthor);
+            updateActiveButton(e.target, iscreator);
             filterEvents();
         });
     });
 });
 
 
-function updateActiveButton(newButton, isAuthor) {
-    let list = isAuthor ? filterListAuthor : filterListDevice
+function updateActiveButton(newButton, iscreator) {
+    let list = iscreator ? filterListcreator : filterListDevice
     list.querySelector(".active").classList.remove("active");
     newButton.classList.add("active");
 }
@@ -44,11 +44,11 @@ function updateActiveButton(newButton, isAuthor) {
 function filterEvents() {
     recipies.forEach((conference) => {
         // get each conferences category
-        let recipieAuthors = (conference.getAttribute("data-author") || "").split(",");
+        let recipiecreators = (conference.getAttribute("data-creator") || "").split(",");
         let recipieDevice = conference.getAttribute("data-device");
 
         // check if that category matches with the filter
-        if ((activeAuthor === "all" || recipieAuthors.includes(activeAuthor)) && (activeDevice === "all" || activeDevice === recipieDevice)) {
+        if ((activecreator === "all" || recipiecreators.includes(activecreator)) && (activeDevice === "all" || activeDevice === recipieDevice)) {
             conference.removeAttribute("hidden");
         } else {
             conference.setAttribute("hidden", "");
