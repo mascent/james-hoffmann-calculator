@@ -84,7 +84,18 @@ h3 a{
   flex: 9 0;
   min-width: 65%;
 }
-
+.tags{
+  align-content: center;
+  width: 100%;
+  flex-direction: row;
+  display: flex;
+}
+.tag {
+  background-color: lightgray;
+  font-size: 0.8em;
+  border-radius: 1.5em;
+  padding: 0.3em;
+}
 .half {
   flex: 1 1;
 }

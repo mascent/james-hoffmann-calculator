@@ -56,8 +56,20 @@
             <div class="recipieWrapper">
                 {% for recipe in site.recipes %}
                 <!--#region {{ recipe.shortHand }}  -->
-                <div class="row recipieFilterSelector" data-creator='{{ recipe.creators | downcase | replace: " ", "-" }}' data-device='{{ recipe.device | downcase | replace: " ", "-" }}'>
+                <div class="row" 
+                data-creator='{{ recipe.creators | downcase | replace: " ", "-" }}' 
+                data-device='{{ recipe.device | downcase | replace: " ", "-" }}' 
+                data-tagg='{{ recipe.taggs | downcase | replace: " ", "-" }}'>
                     <h3 id="{{ recipe.shortHand }}"><a href="#{{recipe.shortHand}}">{{ recipe.title }}</a></h3>
+                    <div class="tags">
+                      {% assign tags = recipe.taggs | split: "," %}
+                      {% for tagg in tags %}
+                      <span class="tag">#{{tagg | strip}}</span>
+                  
+                  
+                      {% endfor %}
+                    </span>
+                    </div>
                     <iframe width="100%" height="315" src="{{ recipe.videoUrl }}" title="YouTube video player"
                         frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

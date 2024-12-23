@@ -1,5 +1,6 @@
 {% assign creators = "All" | split: "," %}
-{% assign devices = "All"%}
+{% assign devices = "All" | split: ","%}
+{% assign taggs = "All" | split: ","%}
 
 {% for recipe in site.recipes %}
 
@@ -15,11 +16,16 @@
 {% assign devices = devices | concat: deviceCleaned %}
 {% endfor %}
 {% endif %}
+{% for tagg in recipe.taggs | split: "," %}
+  {% assign taggCleaned = tagg | strip | split: "," %}
+  {% assign taggs = taggs | concat: taggCleaned %}
+  {% endfor %}
 
 {% endfor %}
 
 {% assign creators = creators | uniq %}
 {% assign devices = devices | uniq %}
+{% assign taggs = taggs | uniq %}
 <div>
 <button onclick="toggleFilterMenu()" class="filterToggle ">Filter</button>
 <div class="filter" hidden="">
@@ -34,12 +40,22 @@
       {% endfor %}
 
   </div>
-    <b>Device:</b>
+  <b>Device:</b>
   <div class="devices">
     {% for device in devices %}
 
     <button class="filter-btn filter-btn-device {% if forloop.first %}active{% endif -%}"
     data-filter-device='{{ device | downcase |replace: " ", "-"}}'>{{device}}</button>
+
+
+    {% endfor %}
+  </div>
+  <b>tagg:</b>
+  <div class="taggs">
+    {% for tagg in taggs %}
+
+    <button class="filter-btn filter-btn-taggs {% if forloop.first %}active{% endif -%}"
+    data-filter-tagg='{{ tagg | downcase |replace: " ", "-"}}'>{{tagg}}</button>
 
 
     {% endfor %}
